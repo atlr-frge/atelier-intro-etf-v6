@@ -608,8 +608,8 @@ a { color: inherit; text-decoration: none; }
   .hero { padding: 5.5rem var(--pad-x) 4rem; min-height: auto; flex-direction: column; align-items: flex-start; }
   .corpse-figure {
     position: static; transform: none;
-    width: min(260px, 65%);
-    margin: 2.5rem auto 0;
+    width: min(240px, 60%);
+    margin: 1.5rem 0 2rem;
     opacity: 1;
   }
 
@@ -726,6 +726,9 @@ a { color: inherit; text-decoration: none; }
       You are running an<br>
       <em>exquisite corpse.</em>
     </h1>
+    <div class="corpse-figure" id="corpse-figure" aria-hidden="true">
+      <img src="images/frank-scissor-sea.jpg" alt="" loading="eager">
+    </div>
     <p class="hero-sub reveal">
       In 1925 the surrealists invented a parlor game. One person draws the head, folds the paper, passes it on. The next person draws a torso without seeing the head. The next draws legs.<br><br>
       You unfold it at the end. The result is always a monster.<br><br>
@@ -735,9 +738,6 @@ a { color: inherit; text-decoration: none; }
       <a href="#the-game" class="btn-primary">See the whole picture &darr;</a>
       <a href="#contact" class="btn-ghost">Map the Corpse &rarr;</a>
     </div>
-  </div>
-  <div class="corpse-figure" id="corpse-figure" aria-hidden="true">
-    <img src="images/frank-scissor-sea.jpg" alt="" loading="eager">
   </div>
 </section>
 
