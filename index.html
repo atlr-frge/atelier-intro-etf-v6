@@ -389,16 +389,16 @@ a { color: inherit; text-decoration: none; }
    GRYPHON SVG ANIMATIONS
    ============================================ */
 @keyframes wingFlapLeft {
-  0%   { transform: rotate(-5deg); }
-  30%  { transform: rotate(-38deg); }
-  65%  { transform: rotate(10deg); }
-  100% { transform: rotate(-5deg); }
+  0%   { transform: rotate(0deg); }
+  32%  { transform: rotate(-30deg); }
+  68%  { transform: rotate(22deg); }
+  100% { transform: rotate(0deg); }
 }
 @keyframes wingFlapRight {
-  0%   { transform: rotate(5deg); }
-  30%  { transform: rotate(38deg); }
-  65%  { transform: rotate(-10deg); }
-  100% { transform: rotate(5deg); }
+  0%   { transform: rotate(0deg); }
+  32%  { transform: rotate(30deg); }
+  68%  { transform: rotate(-22deg); }
+  100% { transform: rotate(0deg); }
 }
 @keyframes gryphonBreathe {
   0%, 100% { transform: translateY(0px); }
@@ -407,37 +407,37 @@ a { color: inherit; text-decoration: none; }
 }
 @keyframes tailSwish {
   0%, 100% { transform: rotate(0deg); }
-  38%       { transform: rotate(16deg); }
-  72%       { transform: rotate(-7deg); }
+  38%       { transform: rotate(20deg); }
+  72%       { transform: rotate(-9deg); }
 }
 @keyframes crownSway {
   0%, 100% { transform: rotate(0deg); }
-  50%       { transform: rotate(-3deg); }
+  50%       { transform: rotate(-4deg); }
 }
 
 #gryphon-wing-left {
-  transform-box: fill-box;
-  transform-origin: right center;
-  animation: wingFlapLeft 2.1s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  transform-box: view-box;
+  transform-origin: 462px 260px;
+  animation: wingFlapLeft 2.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 #gryphon-wing-right {
-  transform-box: fill-box;
-  transform-origin: left center;
-  animation: wingFlapRight 2.1s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  transform-box: view-box;
+  transform-origin: 524px 260px;
+  animation: wingFlapRight 2.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 #gryphon-body-group {
-  transform-box: fill-box;
-  transform-origin: center bottom;
+  transform-box: view-box;
+  transform-origin: 490px 400px;
   animation: gryphonBreathe 3.8s ease-in-out infinite;
 }
 #gryphon-tail {
-  transform-box: fill-box;
-  transform-origin: 0% 50%;
+  transform-box: view-box;
+  transform-origin: 672px 348px;
   animation: tailSwish 3.5s ease-in-out infinite;
 }
 #gryphon-crown {
-  transform-box: fill-box;
-  transform-origin: center bottom;
+  transform-box: view-box;
+  transform-origin: 310px 104px;
   animation: crownSway 3.8s ease-in-out infinite;
 }
 
@@ -764,7 +764,7 @@ a { color: inherit; text-decoration: none; }
 
     <div class="ec-img-col">
       <div class="ec-img-frame">
-        <img src="images/frank-scissor-sea.jpg" alt="Exquisite corpse drawing — three panels, three different artists" loading="lazy">
+        <img src="images/excorpse_eyeball.webp" alt="Exquisite corpse drawing — cyclops head, organic torso, sneaker feet" loading="lazy">
       </div>
       <div class="ec-caption">
         <span>Exquisite corpse</span>
@@ -864,159 +864,199 @@ a { color: inherit; text-decoration: none; }
 
     <!-- ANIMATED GRYPHON SVG -->
     <div class="gryphon-illustration">
-      <svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" aria-label="Animated gryphon — designed eagle-lion integration">
+      <!-- WALKING GRYPHON — dynamic pose, head left, one wing raised high -->
+      <svg viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg" aria-label="Animated gryphon — designed eagle-lion integration">
 
-        <!-- LEFT WING — transform-origin at right (wing root) -->
+        <!-- LEFT WING — raised high, sweeping up-left. Pivots at (462, 260) -->
         <g id="gryphon-wing-left">
-          <path d="M 378 248 C 330 224,260 182,178 138 C 118 104,56 84,10 96
-                   C 48 118,90 144,118 176 C 152 214,205 232,262 244
-                   C 298 251,340 251,378 256 Z"
-                fill="#060606"/>
-          <!-- Primary feathers -->
-          <path d="M 118 176 L 88 132" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <path d="M 118 176 L 100 128" stroke="#000" stroke-width="2"   fill="none" stroke-linecap="round"/>
-          <path d="M 88 156 L 56 110"  stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <path d="M 88 156 L 68 106"  stroke="#000" stroke-width="2"   fill="none" stroke-linecap="round"/>
-          <path d="M 56 132 L 26 88"   stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <path d="M 30 112 L 8 70"    stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <!-- Secondary feathers -->
-          <path d="M 160 196 L 152 168" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-          <path d="M 195 214 L 190 186" stroke="#000" stroke-width="2"   fill="none" stroke-linecap="round"/>
-          <path d="M 234 228 L 232 200" stroke="#000" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-          <path d="M 278 240 L 280 213" stroke="#000" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-          <path d="M 322 248 L 327 222" stroke="#000" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-          <!-- Leading edge vein -->
-          <path d="M 378 248 C 295 218,195 172,100 130" stroke="#000" stroke-width="1.2" fill="none" opacity="0.5"/>
+          <!-- Main membrane -->
+          <path d="M 462 260
+                   C 418 232,350 188,272 144
+                   C 218 112,160 82,118 68
+                   C 90 58,68 64,72 78
+                   C 106 98,156 124,202 162
+                   C 264 208,346 252,408 268
+                   C 434 276,454 274,462 272 Z"
+                fill="#070707"/>
+          <!-- Primary feathers — outer tips radiating from leading edge -->
+          <path d="M 202 162 L 168 116" stroke="#000" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <path d="M 202 162 L 184 112" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <path d="M 168 138 L 134 92"  stroke="#000" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <path d="M 134 114 L 100 70"  stroke="#000" stroke-width="3"   fill="none" stroke-linecap="round"/>
+          <path d="M 100 92  L 68 50"   stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 72 78   L 44 38"   stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Secondary feathers — mid wing -->
+          <path d="M 235 152 L 228 116" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 272 174 L 268 138" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M 314 196 L 314 160" stroke="#000" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+          <path d="M 356 220 L 360 184" stroke="#000" stroke-width="2.1" fill="none" stroke-linecap="round"/>
+          <path d="M 398 244 L 405 209" stroke="#000" stroke-width="1.9" fill="none" stroke-linecap="round"/>
+          <path d="M 435 260 L 444 227" stroke="#000" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <!-- Covert feather arcs (surface texture) -->
+          <path d="M 248 160 C 238 150,234 137,242 131" stroke="#000" stroke-width="1.6" fill="none"/>
+          <path d="M 286 183 C 276 173,273 159,282 153" stroke="#000" stroke-width="1.5" fill="none"/>
+          <path d="M 328 207 C 318 197,316 183,325 177" stroke="#000" stroke-width="1.5" fill="none"/>
+          <path d="M 370 232 C 360 222,360 208,369 203" stroke="#000" stroke-width="1.4" fill="none"/>
+          <!-- Wing veins -->
+          <path d="M 462 260 C 368 222,256 160,122 74" stroke="#000" stroke-width="1.4" fill="none" opacity="0.5"/>
+          <path d="M 458 265 C 360 234,242 180,102 102" stroke="#000" stroke-width="1.1" fill="none" opacity="0.35"/>
         </g>
 
-        <!-- RIGHT WING — transform-origin at left (wing root) -->
+        <!-- RIGHT WING — extended to the right. Pivots at (524, 260) -->
         <g id="gryphon-wing-right">
-          <path d="M 422 248 C 470 224,540 182,622 138 C 682 104,744 84,790 96
-                   C 752 118,710 144,682 176 C 648 214,595 232,538 244
-                   C 502 251,460 251,422 256 Z"
-                fill="#060606"/>
-          <!-- Primary feathers -->
-          <path d="M 682 176 L 712 132" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <path d="M 682 176 L 700 128" stroke="#000" stroke-width="2"   fill="none" stroke-linecap="round"/>
-          <path d="M 712 156 L 744 110" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <path d="M 712 156 L 732 106" stroke="#000" stroke-width="2"   fill="none" stroke-linecap="round"/>
-          <path d="M 744 132 L 774 88"  stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <path d="M 770 112 L 792 70"  stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <!-- Secondary feathers -->
-          <path d="M 640 196 L 648 168" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-          <path d="M 605 214 L 610 186" stroke="#000" stroke-width="2"   fill="none" stroke-linecap="round"/>
-          <path d="M 566 228 L 568 200" stroke="#000" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-          <path d="M 522 240 L 520 213" stroke="#000" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-          <path d="M 478 248 L 473 222" stroke="#000" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-          <!-- Leading edge vein -->
-          <path d="M 422 248 C 505 218,605 172,700 130" stroke="#000" stroke-width="1.2" fill="none" opacity="0.5"/>
+          <!-- Main membrane -->
+          <path d="M 524 260
+                   C 578 238,655 204,736 174
+                   C 794 150,848 138,884 148
+                   C 852 167,812 195,780 228
+                   C 738 270,674 289,612 294
+                   C 575 297,547 292,524 274 Z"
+                fill="#070707"/>
+          <!-- Primary feathers right -->
+          <path d="M 780 228 L 812 182" stroke="#000" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <path d="M 780 228 L 798 178" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <path d="M 812 206 L 846 160" stroke="#000" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <path d="M 848 185 L 882 140" stroke="#000" stroke-width="3"   fill="none" stroke-linecap="round"/>
+          <path d="M 878 166 L 900 128" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <!-- Secondary feathers right -->
+          <path d="M 718 188 L 726 152" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 678 206 L 684 170" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M 638 228 L 642 192" stroke="#000" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+          <path d="M 598 250 L 600 215" stroke="#000" stroke-width="2.1" fill="none" stroke-linecap="round"/>
+          <path d="M 560 267 L 560 233" stroke="#000" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <!-- Covert arcs right -->
+          <path d="M 700 196 C 710 186,714 172,706 166" stroke="#000" stroke-width="1.6" fill="none"/>
+          <path d="M 660 214 C 670 204,674 190,666 184" stroke="#000" stroke-width="1.5" fill="none"/>
+          <path d="M 620 236 C 630 226,633 212,624 207" stroke="#000" stroke-width="1.5" fill="none"/>
+          <!-- Wing vein right -->
+          <path d="M 524 260 C 640 222,758 178,880 150" stroke="#000" stroke-width="1.4" fill="none" opacity="0.5"/>
         </g>
 
-        <!-- BODY GROUP — breathing -->
+        <!-- BODY GROUP — breathes -->
         <g id="gryphon-body-group">
 
-          <!-- TAIL — swishes -->
+          <!-- TAIL — swishes independently (pivot at 672, 348) -->
           <g id="gryphon-tail">
-            <path d="M 452 372 C 506 348,554 312,580 272 C 596 250,597 234,588 225"
-                  stroke="#060606" stroke-width="11" fill="none" stroke-linecap="round"/>
-            <path d="M 588 225 C 580 208,573 199,578 188"
-                  stroke="#060606" stroke-width="7" fill="none" stroke-linecap="round"/>
-            <path d="M 572 198 L 560 182 M 580 191 L 570 174 M 588 188 L 581 171 M 596 193 L 592 175 M 602 202 L 601 184"
-                  stroke="#000" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M 672 348 C 715 322,754 288,770 252 C 780 230,778 212,766 204"
+                  stroke="#070707" stroke-width="13" fill="none" stroke-linecap="round"/>
+            <path d="M 766 204 C 758 188,751 178,756 166"
+                  stroke="#070707" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <!-- Tail tuft -->
+            <path d="M 748 173 L 734 156 M 756 166 L 746 148 M 764 164 L 758 145 M 772 168 L 769 148 M 778 177 L 778 157"
+                  stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           </g>
 
-          <!-- LION HAUNCHES -->
-          <ellipse cx="416" cy="376" rx="82" ry="72" fill="#060606"/>
+          <!-- LION HINDQUARTERS -->
+          <ellipse cx="614" cy="342" rx="98" ry="88" fill="#070707"/>
+          <!-- Haunch fur lines -->
+          <path d="M 534 320 C 546 310,557 308,559 320" stroke="#000" stroke-width="1.4" fill="none"/>
+          <path d="M 536 336 C 548 326,559 324,561 336" stroke="#000" stroke-width="1.4" fill="none"/>
+          <path d="M 538 352 C 551 342,562 340,563 352" stroke="#000" stroke-width="1.4" fill="none"/>
+          <path d="M 540 368 C 554 358,564 357,564 369" stroke="#000" stroke-width="1.3" fill="none"/>
+
           <!-- MAIN TORSO -->
-          <ellipse cx="385" cy="302" rx="96" ry="86" fill="#060606"/>
-          <!-- CHEST -->
-          <ellipse cx="368" cy="334" rx="72" ry="62" fill="#060606"/>
-          <!-- Chest fur detail -->
-          <path d="M 304 308 C 316 318,324 322,328 312" stroke="#000" stroke-width="1.2" fill="none"/>
-          <path d="M 306 322 C 320 332,328 335,332 326" stroke="#000" stroke-width="1.2" fill="none"/>
-          <path d="M 308 336 C 323 344,332 346,335 338" stroke="#000" stroke-width="1.2" fill="none"/>
+          <ellipse cx="490" cy="300" rx="114" ry="96" fill="#070707"/>
 
-          <!-- HIND LEGS -->
-          <path d="M 360 432 C 346 468,338 506,334 528"
-                stroke="#060606" stroke-width="24" fill="none" stroke-linecap="round"/>
-          <path d="M 450 432 C 466 468,474 506,478 528"
-                stroke="#060606" stroke-width="24" fill="none" stroke-linecap="round"/>
-          <!-- Hind paw claws -->
-          <path d="M 322 525 C 311 536,314 547,326 544 M 334 528 C 328 541,333 552,344 548 M 346 526 C 344 538,350 548,360 544"
-                stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <path d="M 468 525 C 479 536,476 547,464 544 M 478 528 C 484 541,479 552,468 548 M 490 526 C 492 538,486 548,476 544"
-                stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- CHEST / FOREQUARTERS -->
+          <ellipse cx="384" cy="315" rx="90" ry="82" fill="#070707"/>
+          <!-- Chest fur -->
+          <path d="M 325 296 C 338 286,350 284,352 296" stroke="#000" stroke-width="1.4" fill="none"/>
+          <path d="M 322 311 C 336 301,347 299,349 311" stroke="#000" stroke-width="1.4" fill="none"/>
+          <path d="M 324 327 C 338 317,350 315,351 327" stroke="#000" stroke-width="1.4" fill="none"/>
+          <path d="M 328 342 C 342 333,353 332,353 344" stroke="#000" stroke-width="1.3" fill="none"/>
 
-          <!-- FRONT EAGLE LEGS -->
-          <path d="M 322 358 C 304 396,292 434,287 462"
-                stroke="#060606" stroke-width="19" fill="none" stroke-linecap="round"/>
-          <path d="M 358 362 C 346 400,339 438,338 462"
-                stroke="#060606" stroke-width="17" fill="none" stroke-linecap="round"/>
-          <!-- Eagle talons left -->
-          <path d="M 276 459 C 263 473,261 488,270 496" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <path d="M 285 461 C 275 477,275 492,285 498" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <path d="M 295 461 C 288 477,290 492,300 497" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <path d="M 304 459 C 302 474,307 487,316 490" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <!-- Eagle talons right -->
-          <path d="M 328 459 C 315 473,313 488,322 496" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <path d="M 337 461 C 327 477,327 492,337 498" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <path d="M 347 461 C 340 477,342 492,352 497" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <path d="M 356 459 C 354 474,359 487,368 490" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <!-- HIND LEGS (lion) — left steps forward, right planted back -->
+          <path d="M 574 416 C 558 455,550 494,546 522"
+                stroke="#070707" stroke-width="27" fill="none" stroke-linecap="round"/>
+          <path d="M 650 410 C 668 450,677 490,679 518"
+                stroke="#070707" stroke-width="27" fill="none" stroke-linecap="round"/>
+          <!-- Lion paw claws left -->
+          <path d="M 534 519 C 522 531,526 543,538 540 M 546 522 C 540 535,544 547,556 544 M 558 520 C 555 532,561 543,571 539"
+                stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <!-- Lion paw claws right -->
+          <path d="M 667 515 C 655 527,659 539,671 536 M 679 518 C 673 531,678 543,689 540 M 691 516 C 688 528,694 539,704 535"
+                stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
 
-          <!-- NECK -->
-          <path d="M 320 262 C 308 226,305 194,314 166 C 322 144,340 130,360 126"
-                stroke="#060606" stroke-width="34" fill="none" stroke-linecap="round"/>
-          <!-- Neck ruff -->
-          <path d="M 288 242 C 270 231,262 216,270 204" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <path d="M 292 258 C 273 249,264 233,273 220" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <path d="M 298 272 C 279 265,269 249,278 236" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <path d="M 322 278 C 308 270,303 254,313 244" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-          <path d="M 340 280 C 329 272,326 256,337 247" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <!-- FRONT EAGLE LEGS — left strides forward, right plants -->
+          <path d="M 348 382 C 328 419,315 457,310 486"
+                stroke="#070707" stroke-width="21" fill="none" stroke-linecap="round"/>
+          <path d="M 407 388 C 395 425,388 463,387 488"
+                stroke="#070707" stroke-width="19" fill="none" stroke-linecap="round"/>
+          <!-- Eagle talons left leg -->
+          <path d="M 298 483 C 284 497,282 513,293 521" stroke="#000" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <path d="M 308 485 C 297 500,297 516,309 523" stroke="#000" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <path d="M 319 485 C 311 501,313 516,325 522" stroke="#000" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <path d="M 330 483 C 326 498,331 512,341 516" stroke="#000" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <!-- Eagle talons right leg -->
+          <path d="M 375 485 C 361 499,359 515,370 523" stroke="#000" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <path d="M 385 487 C 374 502,374 518,386 525" stroke="#000" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <path d="M 396 487 C 388 503,390 518,402 524" stroke="#000" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <path d="M 407 485 C 403 500,408 514,418 518" stroke="#000" stroke-width="3.2" fill="none" stroke-linecap="round"/>
 
-          <!-- EAGLE HEAD -->
-          <ellipse cx="368" cy="108" rx="60" ry="54" fill="#060606"/>
-          <!-- Hooked beak -->
-          <path d="M 320 104 C 290 115,266 130,259 146 C 252 162,264 172,278 166
-                   C 296 158,312 140,322 118 Z"
-                fill="#060606"/>
+          <!-- NECK — powerful arch from chest to head -->
+          <path d="M 338 290 C 322 252,307 218,302 190 C 297 168,300 150,312 143"
+                stroke="#070707" stroke-width="40" fill="none" stroke-linecap="round"/>
+          <path d="M 364 292 C 351 254,340 218,338 190 C 336 168,340 150,353 143"
+                stroke="#070707" stroke-width="32" fill="none" stroke-linecap="round"/>
+          <!-- Neck ruff / mane feathers sweeping forward -->
+          <path d="M 305 271 C 284 259,275 242,285 230" stroke="#000" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <path d="M 301 288 C 279 277,270 260,280 247" stroke="#000" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <path d="M 303 304 C 280 295,270 278,281 265" stroke="#000" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <path d="M 309 318 C 288 310,278 294,290 282" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 320 330 C 301 323,293 308,305 297" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Neck back feather lines -->
+          <path d="M 335 240 C 319 228,316 211,326 203" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M 332 218 C 315 206,311 188,322 180" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+          <!-- EAGLE HEAD — proud profile facing left -->
+          <ellipse cx="310" cy="134" rx="65" ry="58" fill="#070707"/>
+          <!-- Crown bulge -->
+          <ellipse cx="322" cy="104" rx="42" ry="30" fill="#070707"/>
+          <!-- Hooked upper beak — large, powerful, curved -->
+          <path d="M 258 138 C 225 152,200 168,192 186 C 184 204,197 217,214 210
+                   C 234 201,252 181,263 160 Z"
+                fill="#070707"/>
+          <!-- Beak ridge line -->
+          <path d="M 263 160 C 240 175,220 190,218 202" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
           <!-- Lower mandible -->
-          <path d="M 322 118 C 294 132,272 146,267 158"
-                stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <path d="M 261 166 C 239 179,224 192,222 204" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
           <!-- Cere / nostril -->
-          <ellipse cx="304" cy="106" rx="5.5" ry="3.5" fill="none" stroke="#000" stroke-width="1.8"/>
-          <!-- Eye ring -->
-          <circle cx="340" cy="93" r="13" fill="none" stroke="#000" stroke-width="3.2"/>
-          <!-- Pupil -->
-          <circle cx="340" cy="93" r="6.5" fill="#040404"/>
-          <!-- Eye catch light -->
-          <circle cx="344" cy="89" r="2.8" fill="none" stroke="#000" stroke-width="1.8"/>
-          <!-- Fierce brow -->
-          <path d="M 324 79 C 336 70,356 67,370 72" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
-          <!-- Cheek feathers -->
-          <path d="M 390 90 C 408 83,422 74,424 62" stroke="#000" stroke-width="1.8" fill="none"/>
-          <path d="M 394 106 C 414 100,428 91,428 79" stroke="#000" stroke-width="1.8" fill="none"/>
-          <path d="M 392 122 C 410 118,424 108,421 97" stroke="#000" stroke-width="1.8" fill="none"/>
+          <path d="M 242 141 C 238 135,237 130,240 127 C 243 124,248 126,248 131 C 248 136,246 140,242 141 Z"
+                stroke="#000" stroke-width="1.8" fill="none"/>
+          <!-- Eye — large, fierce -->
+          <circle cx="284" cy="122" r="15" fill="none" stroke="#000" stroke-width="3.8"/>
+          <circle cx="284" cy="122" r="8"  fill="#040404"/>
+          <circle cx="288" cy="118" r="3"  fill="none" stroke="#000" stroke-width="2"/>
+          <!-- Heavy brow ridge — fierce expression -->
+          <path d="M 265 106 C 280 94,304 90,321 97" stroke="#000" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <!-- Cheek / back-of-head feather texture -->
+          <path d="M 340 118 C 362 110,379 99,380 86"  stroke="#000" stroke-width="2"   fill="none"/>
+          <path d="M 344 135 C 368 127,386 115,386 102" stroke="#000" stroke-width="2"   fill="none"/>
+          <path d="M 342 153 C 364 147,381 137,379 123" stroke="#000" stroke-width="2"   fill="none"/>
+          <path d="M 336 170 C 356 166,372 157,369 143" stroke="#000" stroke-width="1.8" fill="none"/>
+          <!-- Ear tufts (cat-like, pointing up) -->
+          <path d="M 350 96  C 356 78,363 60,373 46"  stroke="#000" stroke-width="4.2" fill="none" stroke-linecap="round"/>
+          <path d="M 364 90  C 372 72,381 54,393 40"  stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/>
 
-          <!-- CROWN CREST — sways -->
+          <!-- CROWN CREST PLUMES — sway together -->
           <g id="gryphon-crown">
-            <path d="M 342 56 C 337 40,335 22,342 8"   stroke="#000" stroke-width="5"   fill="none" stroke-linecap="round"/>
-            <path d="M 358 52 C 356 35,357 16,366 4"   stroke="#000" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-            <path d="M 374 55 C 375 38,380 20,390 9"   stroke="#000" stroke-width="4"   fill="none" stroke-linecap="round"/>
-            <path d="M 388 60 C 392 44,400 28,412 19"  stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-            <path d="M 326 60 C 318 46,310 30,310 16"  stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-            <path d="M 400 66 C 408 52,418 38,428 30"  stroke="#000" stroke-width="3"   fill="none" stroke-linecap="round"/>
-            <path d="M 312 67 C 302 54,292 40,290 26"  stroke="#000" stroke-width="3"   fill="none" stroke-linecap="round"/>
+            <path d="M 304 80  C 298 60,294 40,300 24"  stroke="#000" stroke-width="5.2" fill="none" stroke-linecap="round"/>
+            <path d="M 320 75  C 316 55,314 33,322 17"  stroke="#000" stroke-width="4.8" fill="none" stroke-linecap="round"/>
+            <path d="M 336 78  C 334 57,335 34,344 18"  stroke="#000" stroke-width="4.3" fill="none" stroke-linecap="round"/>
+            <path d="M 350 82  C 350 62,354 40,364 25"  stroke="#000" stroke-width="3.8" fill="none" stroke-linecap="round"/>
+            <path d="M 286 86  C 278 68,270 48,272 32"  stroke="#000" stroke-width="4"   fill="none" stroke-linecap="round"/>
+            <path d="M 268 96  C 258 80,248 60,250 44"  stroke="#000" stroke-width="3.4" fill="none" stroke-linecap="round"/>
           </g>
 
-          <!-- SHOULDER / WING ROOT COVER -->
-          <ellipse cx="400" cy="241" rx="56" ry="35" fill="#060606"/>
-          <!-- Shoulder feather rows -->
-          <path d="M 354 233 C 352 220,359 212,369 213" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M 370 230 C 370 217,378 209,388 211" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M 386 228 C 388 215,397 208,407 210" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M 402 229 C 406 216,416 210,426 212" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M 418 232 C 424 220,434 215,443 218" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M 432 237 C 440 226,450 222,458 226" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- WING ROOT / SHOULDER PLATE (covers attachment points) -->
+          <ellipse cx="492" cy="256" rx="65" ry="40" fill="#070707"/>
+          <!-- Scapular feather rows -->
+          <path d="M 438 248 C 436 234,444 225,455 226" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M 456 244 C 455 230,464 221,476 223" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M 474 242 C 474 228,484 219,496 221" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M 492 241 C 494 227,505 219,517 222" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M 510 244 C 514 230,526 222,537 226" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M 527 248 C 533 235,545 228,556 232" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
 
         </g><!-- end gryphon-body-group -->
 
