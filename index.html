@@ -145,9 +145,7 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.8; max-width: 540px;
   margin-top: 1.5rem;
 }
-.hero-sub strong {
-  color: var(--text); font-weight: 500;
-}
+.hero-sub strong { color: var(--text); font-weight: 500; }
 .hero-ctas {
   display: flex; gap: 1rem; align-items: center;
   margin-top: 2.5rem; flex-wrap: wrap;
@@ -203,7 +201,7 @@ a { color: inherit; text-decoration: none; }
 .fold-rule.on-lifted::after { background: var(--bg-lifted); }
 
 /* ============================================
-   EXQUISITE CORPSE FEATURE (MrDeyo)
+   EXQUISITE CORPSE FEATURE
    ============================================ */
 .ec-section {
   background: var(--bg);
@@ -319,25 +317,24 @@ a { color: inherit; text-decoration: none; }
 .diag-quote.visible { opacity: 1; transform: translateY(0); }
 
 /* ============================================
-   CENTAUR — THE DESIGNED JOINT
+   GRYPHON — THE DESIGNED JOINT
    ============================================ */
-.centaur-section {
+.gryphon-section {
   background: var(--bg);
   padding: 7rem var(--pad-x);
   border-top: 1px solid var(--border);
 }
-.centaur-section-inner { max-width: var(--max-w); margin: 0 auto; }
+.gryphon-section-inner { max-width: var(--max-w); margin: 0 auto; }
 
-.centaur-hdr {
+.gryphon-hdr {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 3.5rem; align-items: start; margin-bottom: 3rem;
 }
 
-.centaur-illustration {
+.gryphon-illustration {
   display: flex; justify-content: center;
 }
-.centaur-illustration img,
-.centaur-illustration video {
+.gryphon-illustration svg {
   max-width: min(100%, 880px); width: 100%;
   height: auto; display: block;
   filter: invert(1) contrast(1.3) brightness(0.85);
@@ -346,12 +343,11 @@ a { color: inherit; text-decoration: none; }
   opacity: 0; transform: translateY(20px);
   transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
 }
-.centaur-section.revealed .centaur-illustration img,
-.centaur-section.revealed .centaur-illustration video {
+.gryphon-section.revealed .gryphon-illustration svg {
   opacity: 1; transform: translateY(0); transition-delay: 150ms;
 }
 
-.centaur-pillars {
+.gryphon-pillars {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem; margin-top: 2rem;
 }
@@ -378,15 +374,71 @@ a { color: inherit; text-decoration: none; }
 }
 .pillar-desc { font-size: 0.85rem; color: var(--text-sec); line-height: 1.65; }
 
-.centaur-payoff-quote {
+.gryphon-payoff-quote {
   margin-top: 3rem; padding-top: 2.5rem;
   border-top: 1px dashed var(--seam); text-align: center;
 }
-.centaur-payoff-quote p {
+.gryphon-payoff-quote p {
   font-family: var(--font-display); font-style: italic;
   font-size: clamp(1.2rem, 2.2vw, 1.55rem);
   color: var(--ember); font-weight: 300; line-height: 1.4;
   max-width: 700px; margin: 0 auto;
+}
+
+/* ============================================
+   GRYPHON SVG ANIMATIONS
+   ============================================ */
+@keyframes wingFlapLeft {
+  0%   { transform: rotate(-5deg); }
+  30%  { transform: rotate(-38deg); }
+  65%  { transform: rotate(10deg); }
+  100% { transform: rotate(-5deg); }
+}
+@keyframes wingFlapRight {
+  0%   { transform: rotate(5deg); }
+  30%  { transform: rotate(38deg); }
+  65%  { transform: rotate(-10deg); }
+  100% { transform: rotate(5deg); }
+}
+@keyframes gryphonBreathe {
+  0%, 100% { transform: translateY(0px); }
+  40%       { transform: translateY(-5px); }
+  75%       { transform: translateY(3px); }
+}
+@keyframes tailSwish {
+  0%, 100% { transform: rotate(0deg); }
+  38%       { transform: rotate(16deg); }
+  72%       { transform: rotate(-7deg); }
+}
+@keyframes crownSway {
+  0%, 100% { transform: rotate(0deg); }
+  50%       { transform: rotate(-3deg); }
+}
+
+#gryphon-wing-left {
+  transform-box: fill-box;
+  transform-origin: right center;
+  animation: wingFlapLeft 2.1s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+#gryphon-wing-right {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: wingFlapRight 2.1s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+#gryphon-body-group {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: gryphonBreathe 3.8s ease-in-out infinite;
+}
+#gryphon-tail {
+  transform-box: fill-box;
+  transform-origin: 0% 50%;
+  animation: tailSwish 3.5s ease-in-out infinite;
+}
+#gryphon-crown {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: crownSway 3.8s ease-in-out infinite;
 }
 
 /* ============================================
@@ -477,10 +529,7 @@ a { color: inherit; text-decoration: none; }
   padding: 2rem; transition: border-color 0.2s;
 }
 .forge-card:hover { border-color: var(--ember-border); }
-.forge-card .num {
-  font-family: var(--font-display); font-size: 1.8rem;
-  font-weight: 300; color: var(--ember);
-}
+.forge-card .num { font-family: var(--font-display); font-size: 1.8rem; font-weight: 300; color: var(--ember); }
 .forge-card .ftitle { font-size: 1rem; font-weight: 600; color: var(--text); margin-top: 0.25rem; }
 .forge-card .fdesc { font-size: 0.88rem; color: var(--text-sec); line-height: 1.65; margin-top: 0.75rem; }
 .forge-card .fline { width: 100%; height: 1px; background: var(--border); margin: 1rem 0; }
@@ -591,20 +640,13 @@ a { color: inherit; text-decoration: none; }
    RESPONSIVE
    ============================================ */
 @media (max-width: 900px) {
-  /* Layout */
   .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
   .forge-grid { grid-template-columns: 1fr; }
   .grid-2x2 { grid-template-columns: 1fr; }
-
-  /* Section padding */
   .section-dark  { padding: 4.5rem var(--pad-x); }
   .section-lifted { padding: 4.5rem var(--pad-x); }
-
-  /* Nav */
   .nav-links { display: none; }
   .nav-cta { padding: 0.45rem 0.9rem; font-size: 0.72rem; }
-
-  /* Hero — stack text then image */
   .hero { padding: 5.5rem var(--pad-x) 4rem; min-height: auto; flex-direction: column; align-items: flex-start; }
   .corpse-figure {
     position: static; transform: none;
@@ -612,77 +654,44 @@ a { color: inherit; text-decoration: none; }
     margin: 1.5rem 0 2rem;
     opacity: 1;
   }
-
-  /* EC section */
   .ec-section { padding: 5rem var(--pad-x); }
   .ec-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .ec-img-col { display: flex; justify-content: center; }
   .ec-img-frame { max-width: min(260px, 85%); }
   .ec-para { max-width: 100%; }
-
-  /* Diagnosis section */
   .diag-section { padding: 5rem var(--pad-x); }
   .diag-cards { grid-template-columns: 1fr; }
   .diag-segment-art { height: 140px; }
-
-  /* Centaur section */
-  .centaur-section { padding: 5rem var(--pad-x); }
-  .centaur-hdr { grid-template-columns: 1fr; gap: 1.5rem; }
-  .centaur-pillars { grid-template-columns: 1fr; }
-
-  /* Stats */
+  .gryphon-section { padding: 5rem var(--pad-x); }
+  .gryphon-hdr { grid-template-columns: 1fr; gap: 1.5rem; }
+  .gryphon-pillars { grid-template-columns: 1fr; }
   .stat-row { flex-direction: column; }
   .stat-card { padding: 1.5rem 1.25rem; }
   .stat-card .stat-label { font-size: 0.6rem; }
-
-  /* VS table */
   .vs-row .vs-label { width: 90px; font-size: 0.75rem; }
   .vs-row .vs-them, .vs-row .vs-us { font-size: 0.85rem; }
-
-  /* Mono labels — bump up for legibility */
   .label { font-size: 0.65rem; }
-
-  /* Bio cards */
   .bio-card-with-photo .bio-content { gap: 1rem; padding: 1.1rem 1.2rem; }
-
-  /* Close / CTA section */
   .close-section { padding: 5rem var(--pad-x); }
   .close-phase-row { flex-direction: column; max-width: 100%; }
   .close-phase { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding: 1.25rem 1rem; }
   .close-phase:last-child { border-bottom: none; }
-
-  /* Footer */
   .footer { flex-direction: column; text-align: center; gap: 0.5rem; }
 }
 
 @media (max-width: 480px) {
-  /* Tighten padding further on phones */
   .hero { padding: 5rem var(--pad-x) 3.5rem; }
-  .ec-section, .diag-section, .centaur-section { padding: 4rem var(--pad-x); }
+  .ec-section, .diag-section, .gryphon-section { padding: 4rem var(--pad-x); }
   .section-dark, .section-lifted { padding: 4rem var(--pad-x); }
   .close-section { padding: 4rem var(--pad-x); }
-
-  /* Hero title readable on small screens */
   .hero-title { font-size: clamp(2.6rem, 10vw, 4rem); }
-
-  /* Close headline — compound word must wrap */
   .close-headline { font-size: clamp(1.9rem, 7vw, 2.6rem); }
-
-  /* EC image a little smaller on very small screens */
   .ec-img-frame { max-width: min(220px, 80%); }
-
-  /* Stat cards full-bleed feel */
   .stat-card { padding: 1.25rem 1rem; }
   .stat-card .val { font-size: 2.2rem; }
-
-  /* VS table labels tighter */
   .vs-row .vs-label { width: 76px; font-size: 0.7rem; }
   .vs-row .vs-them, .vs-row .vs-us { font-size: 0.8rem; }
-
-  /* Forge cards */
   .forge-card { padding: 1.5rem; }
-
-  /* Nav logo truncation prevention */
   .nav-logo { font-size: 0.55rem; letter-spacing: 0.12em; }
   .nav-cta { padding: 0.4rem 0.75rem; font-size: 0.68rem; }
 }
@@ -692,9 +701,13 @@ a { color: inherit; text-decoration: none; }
   .stagger-children .forge-card, .stagger-children .case-card,
   .stagger-children .bio-card-with-photo, .stagger-children .stat-card,
   .stagger-children .vs-row, .diag-line, .corpse-figure,
-  .centaur-illustration img, .centaur-illustration video, .ec-img-frame img {
+  .gryphon-illustration svg, .ec-img-frame img {
     opacity: 1 !important; transform: none !important;
     animation: none !important; transition: none !important;
+  }
+  #gryphon-wing-left, #gryphon-wing-right,
+  #gryphon-body-group, #gryphon-tail, #gryphon-crown {
+    animation: none !important;
   }
 }
 
@@ -727,12 +740,12 @@ a { color: inherit; text-decoration: none; }
       <em>exquisite corpse.</em>
     </h1>
     <div class="corpse-figure" id="corpse-figure" aria-hidden="true">
-      <img src="images/frank-scissor-sea.jpg" alt="" loading="eager">
+      <img src="images/MrDeyo.jpg" alt="" loading="eager">
     </div>
     <p class="hero-sub reveal">
-      In 1925 the surrealists invented a parlor game. One person draws the head, folds the paper, passes it on. The next person draws a torso without seeing the head. The next draws legs.<br><br>
-      You unfold it at the end. The result is always a monster.<br><br>
-      <strong>That&rsquo;s your AI deployment right now.</strong>
+      In 1925 the surrealists invented a parlor game. One person draws the head &mdash; a cat &mdash; folds the paper, passes it on. The next draws a skeleton torso. The third draws human legs in a skirt. Nobody communicates.<br><br>
+      You unfold it at the end. That&rsquo;s what you&rsquo;re looking at right now.<br><br>
+      <strong>That&rsquo;s your AI deployment.</strong>
     </p>
     <div class="hero-ctas reveal">
       <a href="#the-game" class="btn-primary">See the whole picture &darr;</a>
@@ -751,12 +764,12 @@ a { color: inherit; text-decoration: none; }
 
     <div class="ec-img-col">
       <div class="ec-img-frame">
-        <img src="images/MrDeyo.jpg" alt="Exquisite corpse drawing — three panels, three different artists" loading="lazy">
+        <img src="images/frank-scissor-sea.jpg" alt="Exquisite corpse drawing — three panels, three different artists" loading="lazy">
       </div>
       <div class="ec-caption">
         <span>Exquisite corpse</span>
-        <span>Three artists. Three panels.</span>
-        <span>Zero communication.</span>
+        <span>Three artists. Three folds.</span>
+        <span>One impossible monster.</span>
       </div>
     </div>
 
@@ -765,10 +778,10 @@ a { color: inherit; text-decoration: none; }
       <h2 class="ec-title reveal">The result is<br>always <em>a monster.</em><br>That&rsquo;s the point.</h2>
 
       <p class="ec-para reveal">
-        André Breton and the surrealists invented <em>cadavre exquis</em> — exquisite corpse — to produce the unplanned, the irrational, the beautiful accident. Cat head. Skeleton torso. Human legs in a skirt. Three people who never spoke while drawing.
+        Andr&eacute; Breton and the surrealists invented <em>cadavre exquis</em> &mdash; exquisite corpse &mdash; to produce the unplanned, the irrational, the beautiful accident. Cat head. Skeleton torso. Human legs in a skirt. Three people who never spoke while drawing.
       </p>
       <p class="ec-para reveal">
-        They published these monsters in their manifestos. They were thrilled. The disconnection between panels was the entire mechanism. The absurdity was the art. Each artist folded the paper and passed it on — the fold was the rule, and the rule was the genius.
+        They published these monsters in their manifestos. They were thrilled. The disconnection between panels was the entire mechanism. The absurdity was the art. Each artist folded the paper and passed it on &mdash; the fold was the rule, and the rule was the genius.
       </p>
       <p class="ec-para reveal">
         Your enterprise runs a version of this game every day. Finance builds AI tools without telling Creative. Creative builds without telling Operations. The paper moves between departments, always folded, never opened. Nobody ever unfolds it.
@@ -804,7 +817,7 @@ a { color: inherit; text-decoration: none; }
         <div class="diag-segment-art"><img src="images/panel-head.jpg" alt="Head panel"></div>
         <div class="diag-fold-line"></div>
         <div class="diag-card-body">
-          <div class="diag-dept">Finance — Head</div>
+          <div class="diag-dept">Finance &mdash; Head</div>
           <div class="diag-tool">Replit / custom scripts</div>
           <p class="diag-desc">Solving compliance and reporting. Nothing they build reaches anyone else. No shared output format, no shared memory. Drew the head. Folded the paper.</p>
         </div>
@@ -813,7 +826,7 @@ a { color: inherit; text-decoration: none; }
         <div class="diag-segment-art"><img src="images/panel-body.jpg" alt="Body panel"></div>
         <div class="diag-fold-line"></div>
         <div class="diag-card-body">
-          <div class="diag-dept">Creative — Body</div>
+          <div class="diag-dept">Creative &mdash; Body</div>
           <div class="diag-tool">Google AI Studio / Midjourney</div>
           <p class="diag-desc">No connection to what Finance approved or what Operations is automating. Different context, different outputs, no shared memory. Drew the body. Passed it on.</p>
         </div>
@@ -822,7 +835,7 @@ a { color: inherit; text-decoration: none; }
         <div class="diag-segment-art"><img src="images/panel-feet.jpg" alt="Feet panel"></div>
         <div class="diag-fold-line"></div>
         <div class="diag-card-body">
-          <div class="diag-dept">Operations — Legs</div>
+          <div class="diag-dept">Operations &mdash; Legs</div>
           <div class="diag-tool">Microsoft Copilot</div>
           <p class="diag-desc">Doesn&rsquo;t know what Finance built or what Creative generated. Every session starts from scratch. Drew the legs. Now unfold it.</p>
         </div>
@@ -833,36 +846,188 @@ a { color: inherit; text-decoration: none; }
 </div>
 
 <!-- ============================================================
-     THE CENTAUR — THE DESIGNED JOINT
+     THE GRYPHON — THE DESIGNED JOINT
      ============================================================ -->
-<section class="centaur-section" id="centaur">
-  <div class="centaur-section-inner">
+<section class="gryphon-section" id="gryphon">
+  <div class="gryphon-section-inner">
 
-    <div class="centaur-hdr">
+    <div class="gryphon-hdr">
       <div class="reveal">
         <span class="label">The designed whole</span>
         <h2 class="section-title" style="margin-top:0.75rem">We designed<br>the <em>joint.</em></h2>
       </div>
       <div class="reveal" style="padding-top:0.5rem">
-        <p class="body-text" style="max-width:100%">The centaur isn&rsquo;t a human and a horse standing next to each other. The join is load&#8209;bearing. It has to be engineered, tested, and improved over&nbsp;time.</p>
+        <p class="body-text" style="max-width:100%">The gryphon isn&rsquo;t an eagle and a lion standing next to each other. The join is load&#8209;bearing. It has to be engineered, tested, and improved over&nbsp;time.</p>
         <p class="body-text" style="max-width:100%;margin-top:1rem">We design and operate that connection. Your domain knowledge and your AI infrastructure, fitted together, passing context between them. That&rsquo;s the product. That&rsquo;s what&nbsp;compounds.</p>
       </div>
     </div>
 
-    <div class="centaur-illustration">
-      <video
-        src="images/centaur-animated.mp4"
-        poster="images/centaur.jpg"
-        autoplay muted loop playsinline
-        aria-label="Animated centaur diagram — designed human-horse integration">
-      </video>
+    <!-- ANIMATED GRYPHON SVG -->
+    <div class="gryphon-illustration">
+      <svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" aria-label="Animated gryphon — designed eagle-lion integration">
+
+        <!-- LEFT WING — transform-origin at right (wing root) -->
+        <g id="gryphon-wing-left">
+          <path d="M 378 248 C 330 224,260 182,178 138 C 118 104,56 84,10 96
+                   C 48 118,90 144,118 176 C 152 214,205 232,262 244
+                   C 298 251,340 251,378 256 Z"
+                fill="#060606"/>
+          <!-- Primary feathers -->
+          <path d="M 118 176 L 88 132" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 118 176 L 100 128" stroke="#000" stroke-width="2"   fill="none" stroke-linecap="round"/>
+          <path d="M 88 156 L 56 110"  stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 88 156 L 68 106"  stroke="#000" stroke-width="2"   fill="none" stroke-linecap="round"/>
+          <path d="M 56 132 L 26 88"   stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 30 112 L 8 70"    stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Secondary feathers -->
+          <path d="M 160 196 L 152 168" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <path d="M 195 214 L 190 186" stroke="#000" stroke-width="2"   fill="none" stroke-linecap="round"/>
+          <path d="M 234 228 L 232 200" stroke="#000" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M 278 240 L 280 213" stroke="#000" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <path d="M 322 248 L 327 222" stroke="#000" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <!-- Leading edge vein -->
+          <path d="M 378 248 C 295 218,195 172,100 130" stroke="#000" stroke-width="1.2" fill="none" opacity="0.5"/>
+        </g>
+
+        <!-- RIGHT WING — transform-origin at left (wing root) -->
+        <g id="gryphon-wing-right">
+          <path d="M 422 248 C 470 224,540 182,622 138 C 682 104,744 84,790 96
+                   C 752 118,710 144,682 176 C 648 214,595 232,538 244
+                   C 502 251,460 251,422 256 Z"
+                fill="#060606"/>
+          <!-- Primary feathers -->
+          <path d="M 682 176 L 712 132" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 682 176 L 700 128" stroke="#000" stroke-width="2"   fill="none" stroke-linecap="round"/>
+          <path d="M 712 156 L 744 110" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 712 156 L 732 106" stroke="#000" stroke-width="2"   fill="none" stroke-linecap="round"/>
+          <path d="M 744 132 L 774 88"  stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 770 112 L 792 70"  stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Secondary feathers -->
+          <path d="M 640 196 L 648 168" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <path d="M 605 214 L 610 186" stroke="#000" stroke-width="2"   fill="none" stroke-linecap="round"/>
+          <path d="M 566 228 L 568 200" stroke="#000" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M 522 240 L 520 213" stroke="#000" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <path d="M 478 248 L 473 222" stroke="#000" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <!-- Leading edge vein -->
+          <path d="M 422 248 C 505 218,605 172,700 130" stroke="#000" stroke-width="1.2" fill="none" opacity="0.5"/>
+        </g>
+
+        <!-- BODY GROUP — breathing -->
+        <g id="gryphon-body-group">
+
+          <!-- TAIL — swishes -->
+          <g id="gryphon-tail">
+            <path d="M 452 372 C 506 348,554 312,580 272 C 596 250,597 234,588 225"
+                  stroke="#060606" stroke-width="11" fill="none" stroke-linecap="round"/>
+            <path d="M 588 225 C 580 208,573 199,578 188"
+                  stroke="#060606" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M 572 198 L 560 182 M 580 191 L 570 174 M 588 188 L 581 171 M 596 193 L 592 175 M 602 202 L 601 184"
+                  stroke="#000" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </g>
+
+          <!-- LION HAUNCHES -->
+          <ellipse cx="416" cy="376" rx="82" ry="72" fill="#060606"/>
+          <!-- MAIN TORSO -->
+          <ellipse cx="385" cy="302" rx="96" ry="86" fill="#060606"/>
+          <!-- CHEST -->
+          <ellipse cx="368" cy="334" rx="72" ry="62" fill="#060606"/>
+          <!-- Chest fur detail -->
+          <path d="M 304 308 C 316 318,324 322,328 312" stroke="#000" stroke-width="1.2" fill="none"/>
+          <path d="M 306 322 C 320 332,328 335,332 326" stroke="#000" stroke-width="1.2" fill="none"/>
+          <path d="M 308 336 C 323 344,332 346,335 338" stroke="#000" stroke-width="1.2" fill="none"/>
+
+          <!-- HIND LEGS -->
+          <path d="M 360 432 C 346 468,338 506,334 528"
+                stroke="#060606" stroke-width="24" fill="none" stroke-linecap="round"/>
+          <path d="M 450 432 C 466 468,474 506,478 528"
+                stroke="#060606" stroke-width="24" fill="none" stroke-linecap="round"/>
+          <!-- Hind paw claws -->
+          <path d="M 322 525 C 311 536,314 547,326 544 M 334 528 C 328 541,333 552,344 548 M 346 526 C 344 538,350 548,360 544"
+                stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M 468 525 C 479 536,476 547,464 544 M 478 528 C 484 541,479 552,468 548 M 490 526 C 492 538,486 548,476 544"
+                stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+          <!-- FRONT EAGLE LEGS -->
+          <path d="M 322 358 C 304 396,292 434,287 462"
+                stroke="#060606" stroke-width="19" fill="none" stroke-linecap="round"/>
+          <path d="M 358 362 C 346 400,339 438,338 462"
+                stroke="#060606" stroke-width="17" fill="none" stroke-linecap="round"/>
+          <!-- Eagle talons left -->
+          <path d="M 276 459 C 263 473,261 488,270 496" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 285 461 C 275 477,275 492,285 498" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 295 461 C 288 477,290 492,300 497" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 304 459 C 302 474,307 487,316 490" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <!-- Eagle talons right -->
+          <path d="M 328 459 C 315 473,313 488,322 496" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 337 461 C 327 477,327 492,337 498" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 347 461 C 340 477,342 492,352 497" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 356 459 C 354 474,359 487,368 490" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+
+          <!-- NECK -->
+          <path d="M 320 262 C 308 226,305 194,314 166 C 322 144,340 130,360 126"
+                stroke="#060606" stroke-width="34" fill="none" stroke-linecap="round"/>
+          <!-- Neck ruff -->
+          <path d="M 288 242 C 270 231,262 216,270 204" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 292 258 C 273 249,264 233,273 220" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 298 272 C 279 265,269 249,278 236" stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          <path d="M 322 278 C 308 270,303 254,313 244" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <path d="M 340 280 C 329 272,326 256,337 247" stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+
+          <!-- EAGLE HEAD -->
+          <ellipse cx="368" cy="108" rx="60" ry="54" fill="#060606"/>
+          <!-- Hooked beak -->
+          <path d="M 320 104 C 290 115,266 130,259 146 C 252 162,264 172,278 166
+                   C 296 158,312 140,322 118 Z"
+                fill="#060606"/>
+          <!-- Lower mandible -->
+          <path d="M 322 118 C 294 132,272 146,267 158"
+                stroke="#000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <!-- Cere / nostril -->
+          <ellipse cx="304" cy="106" rx="5.5" ry="3.5" fill="none" stroke="#000" stroke-width="1.8"/>
+          <!-- Eye ring -->
+          <circle cx="340" cy="93" r="13" fill="none" stroke="#000" stroke-width="3.2"/>
+          <!-- Pupil -->
+          <circle cx="340" cy="93" r="6.5" fill="#040404"/>
+          <!-- Eye catch light -->
+          <circle cx="344" cy="89" r="2.8" fill="none" stroke="#000" stroke-width="1.8"/>
+          <!-- Fierce brow -->
+          <path d="M 324 79 C 336 70,356 67,370 72" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <!-- Cheek feathers -->
+          <path d="M 390 90 C 408 83,422 74,424 62" stroke="#000" stroke-width="1.8" fill="none"/>
+          <path d="M 394 106 C 414 100,428 91,428 79" stroke="#000" stroke-width="1.8" fill="none"/>
+          <path d="M 392 122 C 410 118,424 108,421 97" stroke="#000" stroke-width="1.8" fill="none"/>
+
+          <!-- CROWN CREST — sways -->
+          <g id="gryphon-crown">
+            <path d="M 342 56 C 337 40,335 22,342 8"   stroke="#000" stroke-width="5"   fill="none" stroke-linecap="round"/>
+            <path d="M 358 52 C 356 35,357 16,366 4"   stroke="#000" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+            <path d="M 374 55 C 375 38,380 20,390 9"   stroke="#000" stroke-width="4"   fill="none" stroke-linecap="round"/>
+            <path d="M 388 60 C 392 44,400 28,412 19"  stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <path d="M 326 60 C 318 46,310 30,310 16"  stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <path d="M 400 66 C 408 52,418 38,428 30"  stroke="#000" stroke-width="3"   fill="none" stroke-linecap="round"/>
+            <path d="M 312 67 C 302 54,292 40,290 26"  stroke="#000" stroke-width="3"   fill="none" stroke-linecap="round"/>
+          </g>
+
+          <!-- SHOULDER / WING ROOT COVER -->
+          <ellipse cx="400" cy="241" rx="56" ry="35" fill="#060606"/>
+          <!-- Shoulder feather rows -->
+          <path d="M 354 233 C 352 220,359 212,369 213" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 370 230 C 370 217,378 209,388 211" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 386 228 C 388 215,397 208,407 210" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 402 229 C 406 216,416 210,426 212" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 418 232 C 424 220,434 215,443 218" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 432 237 C 440 226,450 222,458 226" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+        </g><!-- end gryphon-body-group -->
+
+      </svg>
     </div>
 
-    <div class="centaur-pillars stagger-children">
+    <div class="gryphon-pillars stagger-children">
       <div class="pillar">
-        <span class="pillar-label">Human — Intelligence</span>
+        <span class="pillar-label">Eagle &mdash; Vision</span>
         <div class="pillar-title">The judgment layer</div>
-        <p class="pillar-desc">Domain knowledge, regulatory context, business goals. Everything the machine needs to understand what good looks like in your specific&nbsp;world.</p>
+        <p class="pillar-desc">Domain knowledge, regulatory context, business goals. The bird&rsquo;s-eye view the machine needs to understand what good looks like in your specific&nbsp;world.</p>
       </div>
       <div class="pillar pillar-joint">
         <span class="pillar-label">The Designed Joint</span>
@@ -870,14 +1035,14 @@ a { color: inherit; text-decoration: none; }
         <p class="pillar-desc">Context engineering. Integration architecture. Shared memory that lets both sides work as one. Most teams leave this to chance. We&nbsp;don&rsquo;t.</p>
       </div>
       <div class="pillar">
-        <span class="pillar-label">Machine — Infrastructure</span>
+        <span class="pillar-label">Lion &mdash; Execution</span>
         <div class="pillar-title">Runs without you</div>
         <p class="pillar-desc">Agents and orchestration running at machine pace, 24/7. Compounding with every cycle. Getting better at your specific&nbsp;problem.</p>
       </div>
     </div>
 
-    <div class="centaur-payoff-quote reveal">
-      <p>&ldquo;The centaur beats the Frankenstein&#8209;scissorhanded&#8209;sea&#8209;monster every time. And the centaur was&nbsp;planned.&rdquo;</p>
+    <div class="gryphon-payoff-quote reveal">
+      <p>&ldquo;The gryphon beats the Frankenstein&#8209;scissorhanded&#8209;sea&#8209;monster every time. And the gryphon was&nbsp;designed.&rdquo;</p>
     </div>
 
   </div>
@@ -1133,14 +1298,14 @@ a { color: inherit; text-decoration: none; }
     }, { threshold: 0.25 }).observe(diagEl);
   }
 
-  // === CENTAUR SECTION ENTRY ===
-  const centaurSection = document.querySelector('.centaur-section');
-  if (centaurSection) {
+  // === GRYPHON SECTION ENTRY ===
+  const gryphonSection = document.querySelector('.gryphon-section');
+  if (gryphonSection) {
     new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) centaurSection.classList.add('revealed');
+        if (e.isIntersecting) gryphonSection.classList.add('revealed');
       });
-    }, { threshold: 0.2 }).observe(centaurSection);
+    }, { threshold: 0.2 }).observe(gryphonSection);
   }
 
   // === EC SECTION IMAGE ENTRY ===
